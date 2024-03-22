@@ -1,15 +1,17 @@
 /********************************************************************************
-* WEB322 ï¿½ Assignment 04
+* 
+* WEB322 – Assignment 04
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
 *
 * https://www.senecacollege.ca/about/policies/academic-integrity-policy.html
 *
-* Name: Arth Patel    Student ID: 141716225     Date: 2024-03-21
+* Name: Arth Patel        Student ID: 144095221         Date: 2024-03-22
+*
+* Published URL: https://chimpanzee-sock.cyclic.app/
 *
 ********************************************************************************/
-
 const legoData = require("./modules/legoSets");
 
 
@@ -18,7 +20,7 @@ const path = require("path");
 const express = require('express');
 const app = express();
 
-const HTTP_PORT = process.env.PORT || 8011;
+const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.set('view engine', 'ejs');

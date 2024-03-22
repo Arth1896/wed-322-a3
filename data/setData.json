@@ -318,5 +318,165 @@
         "theme_id": "127",
         "num_parts": "42",
         "img_url": "https://cdn.rebrickable.com/media/sets/7049-1.jpg"
+    },
+    {
+        "set_num": "10024-1",
+        "name": "Red Baron",
+        "year": "2002",
+        "theme_id": "673",
+        "num_parts": "670",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10024-1.jpg"
+    },
+    {
+        "set_num": "10025-1",
+        "name": "Santa Fe Cars - Set I (mail or baggage car)",
+        "year": "2002",
+        "theme_id": "236",
+        "num_parts": "326",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10025-1.jpg"
+    },
+    {
+        "set_num": "10026-1",
+        "name": "Naboo Starfighter",
+        "year": "2002",
+        "theme_id": "171",
+        "num_parts": "188",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10026-1.jpg"
+    },
+    {
+        "set_num": "10027-1",
+        "name": "Train Engine Shed",
+        "year": "2003",
+        "theme_id": "105",
+        "num_parts": "670",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10027-1.jpg"
+    },
+    {
+        "set_num": "10029-1",
+        "name": "Lunar Lander",
+        "year": "2003",
+        "theme_id": "387",
+        "num_parts": "469",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10029-1.jpg"
+    },
+    {
+        "set_num": "10030-1",
+        "name": "Imperial Star Destroyer",
+        "year": "2002",
+        "theme_id": "171",
+        "num_parts": "3116",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10030-1.jpg"
+    },
+    {
+        "set_num": "10036-1",
+        "name": "Pizza To Go",
+        "year": "2002",
+        "theme_id": "50",
+        "num_parts": "151",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10036-1.jpg"
+    },
+    {
+        "set_num": "10037-1",
+        "name": "Breezeway Cafe",
+        "year": "2002",
+        "theme_id": "50",
+        "num_parts": "195",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10037-1.jpg"
+    },
+    {
+        "set_num": "10039-1",
+        "name": "Black Falcon's Fortress",
+        "year": "2002",
+        "theme_id": "187",
+        "num_parts": "430",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10039-1.jpg"
+    },
+    {
+        "set_num": "10040-1",
+        "name": "Black Seas Barracuda",
+        "year": "2002",
+        "theme_id": "148",
+        "num_parts": "916",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10040-1.jpg"
+    },
+    {
+        "set_num": "10041-1",
+        "name": "Main Street",
+        "year": "2003",
+        "theme_id": "50",
+        "num_parts": "640",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10041-1.jpg"
+    },
+    {
+        "set_num": "10042-1",
+        "name": "American Flag",
+        "year": "2003",
+        "theme_id": "206",
+        "num_parts": "35",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10042-1.jpg"
+    },
+    {
+        "set_num": "10043-1",
+        "name": "2x2 Electrical Plate",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "1",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10043-1.jpg"
+    },
+    {
+        "set_num": "10044-1",
+        "name": "Windows and Doors",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "44",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10044-1.jpg"
+    },
+    {
+        "set_num": "10045-1",
+        "name": "Pillars and Beams",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "13",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10045-1.jpg"
+    },
+    {
+        "set_num": "10046-1",
+        "name": "Brown Tiles",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "100",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10046-1.jpg"
+    },
+    {
+        "set_num": "10047-1",
+        "name": "Light Gray Arches",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "36",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10047-1.jpg"
+    },
+    {
+        "set_num": "10048-1",
+        "name": "Small Wheels and Axles",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "61",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10048-1.jpg"
+    },
+    {
+        "set_num": "10049-1",
+        "name": "Large Wheels and Axles",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "31",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10049-1.jpg"
+    },
+    {
+        "set_num": "10050-1",
+        "name": "Gray Fences",
+        "year": "2002",
+        "theme_id": "254",
+        "num_parts": "34",
+        "img_url": "https://cdn.rebrickable.com/media/sets/10050-1.jpg"
     }
 ]
