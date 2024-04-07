@@ -46,7 +46,7 @@
             <tr >
                 <td><div class="avatar"><img src="<%= set.img_url %>" alt="<%= set.name %>" style="width: 8rem; height: 8rem; border-radius: 20%;"></div></td>
                 <td><div class="font-semibold"><%= set.name %></div></td>
-                <td><a href="/lego/sets?theme=<%= set.theme %>" class="btn"><%= set.theme %></a></td>
+                <td><a href="/lego/sets?theme=<%= set.Theme.name %>" class="btn"><%= set.Theme.name %></a></td>
                 <td><%= set.year %></td>
                 <td><%= set.num_parts %></td>
                 <td><a href="/lego/sets/<%= set.set_num %>" class="btn btn-info">Details</a></td>
