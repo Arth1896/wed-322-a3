@@ -1,6 +1,6 @@
 /********************************************************************************
 * 
-* WEB322 � Assignment 04
+* WEB322   Assignment 04
 *
 * I declare that this assignment is my own work in accordance with Seneca's
 * Academic Integrity Policy:
@@ -12,16 +12,27 @@
 * Published URL: https://chimpanzee-sock.cyclic.app/
 *
 ********************************************************************************/
-const legoData = require("./modules/legoSets");
-const path = require("path");
-
 const express = require('express');
+const path = require('path');
+const legoData = require('./modules/legoSets');
+const authData = require('./modules/auth-service');
+const clientSessions = require('client-sessions');
 const app = express();
 
 const HTTP_PORT = process.env.PORT || 8080;
 
 app.use(express.static(path.join(__dirname, 'public')));
 app.use(express.urlencoded({ extended: true })); 
+app.use(clientSessions({
+  cookieName: 'session',
+  secret: 'random_secret_string',
+  duration: 24 * 60 * 60 * 1000,
+  activeDuration: 1000 * 60 * 5
+}));
+app.use((req, res, next) => {
+  res.locals.session = req.session;
+  next();
+});
 app.set('view engine', 'ejs');
 
 
@@ -61,7 +72,7 @@ app.get("/lego/sets/:num", async (req, res) => {
     res.status(500).render("500", { message: "Internal Server Error" });
   }
 });
-
+//1
 app.get('/lego/addSet', async (req, res) => {
   try {
     const themes = await legoData.getAllThemes();
@@ -71,7 +82,7 @@ app.get('/lego/addSet', async (req, res) => {
     res.render('500', { message: `I'm sorry, but we have encountered an error: ${error}` });
   }
 });
-
+//2
 app.post('/lego/addSet', async (req, res) => {
   try {
     await legoData.addSet(req.body);
@@ -81,7 +92,7 @@ app.post('/lego/addSet', async (req, res) => {
     res.render('500', { message: `I'm sorry, but we have encountered an error: ${error}` });
   }
 });
-
+//3
 app.get('/lego/editSet/:num', async (req, res) => {
   try {
     const set = await legoData.getSetByNum(req.params.num);
@@ -92,7 +103,7 @@ app.get('/lego/editSet/:num', async (req, res) => {
     res.status(404).send('Set not found');
   }
 });
-
+//4
 app.post('/lego/editSet', async (req, res) => {
   try {
     const setNum = req.body.set_num;
@@ -105,7 +116,7 @@ app.post('/lego/editSet', async (req, res) => {
     res.render('500', { message: `An error occurred while updating the set: ${error}` });
   }
 });
-
+//5
 app.get('/lego/deleteSet/:num', async (req, res) => {
   try {
     const setNum = req.params.num;
@@ -116,12 +127,80 @@ app.get('/lego/deleteSet/:num', async (req, res) => {
     res.status(500).render('500', { message: `I'm sorry, but we have encountered the following error: ${error}` });
   }
 });
+// Route to render the login view
+app.get('/login', (req, res) => {
+  res.render('login', { errorMessage: null, userName: null });
+});
+
+
+// Route to render the register view
+app.get('/register', (req, res) => {
+  res.render('register', { errorMessage: null, userName: null });
+});
+
+// POST route to handle user registration
+app.post('/register', async (req, res) => {
+  try {
+    const userData = req.body;
+    await authData.registerUser(userData);
+    res.render('register', { successMessage: "User created" });
+  } catch (error) {
+    res.render('register', { errorMessage: error, userName: req.body.userName });
+  }
+});
+// Route to handle user login
+app.post('/login', async (req, res) => {
+  try {
+    req.body.userAgent = req.get('User-Agent');
+    const user = await authData.checkUser(req.body);
+    req.session.user = {
+      userName: user.userName,
+      email: user.email,
+      loginHistory: user.loginHistory
+    };
+    res.redirect('/lego/sets');
+  } catch (error) {
+    res.render('login', { errorMessage: error, userName: req.body.userName });
+  }
+});
+
+// Route to handle user logout
+app.get('/logout', (req, res) => {
+  req.session.reset();
+  res.redirect('/');
+});
+
+// Route to render the userHistory view
+app.get('/userHistory', ensureLogin, (req, res) => {
+  res.render('userHistory', { loginHistory: req.session.user.loginHistory });
+});
+
+
+// Custom middleware to ensure user is logged in
+function ensureLogin(req, res, next) {
+  if (req.session && req.session.user) {
+    // User is logged in
+    next();
+  } else {
+    // User is not logged in, redirect to login route
+    res.redirect('/login');
+  }
+}
 
 app.use((req, res, next) => {
   res.status(404).render("404", { message: "I'm sorry, we're unable to find what you're looking for." });
 });
 
-legoData.initialize().then(()=>{
-  app.listen(HTTP_PORT, () => { console.log(`server running on: http://localhost:${HTTP_PORT}`) });
-});
+
+legoData.initialize()
+  .then(authData.initialize)
+  .then(() => {
+    app.listen(HTTP_PORT, () => {
+      console.log(`Server listening on: http://localhost:${HTTP_PORT}`);
+    });
+  })
+  .catch((error) => {
+    console.error('Error initializing database:', error);
+  });
+
 module.exports = app;
